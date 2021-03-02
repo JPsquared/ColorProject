@@ -1,7 +1,9 @@
 [Desktop Entry]
 Name=Color Project Startup
+Name[en_US]=Color Project Startup
+Comment=
 Exec=/home/administrator/ColorProject/startup.sh
 Icon=terminal
 Terminal=false
-Type=application
+Type=Application
 StartupNotify=true
