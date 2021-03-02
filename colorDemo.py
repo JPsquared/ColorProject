@@ -3,8 +3,8 @@ from turtleAPI import robot
 
 
 if __name__ == "__main__":
-    rate = rospy.Rate(10)
     rbt = robot()
+    rate = rospy.Rate(10)
     print("This worked")
     image = rbt.getImage()
     print(type(image))
