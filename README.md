@@ -19,7 +19,10 @@ Restrictions:
   program.
   
 
-#### Startup.sh
+#### Startup.sh and ColorProjectStartup.desktop
 
 `startup.sh` was created to make initialising the various terminals simpler. It runs the four commands needed to prepare
 the project environment to run tests.
+
+`ColorProjectStartup.desktop` was created to be placed on the desktop so that when it is run, `startup.sh` will be run. 
+This must be made to be executable using chmod along with `startup.sh`.
