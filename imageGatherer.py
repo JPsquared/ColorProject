@@ -1,5 +1,6 @@
 import rospy
 import cv2
+from os import chdir
 from time import sleep
 from numpy import pi
 from turtleAPI import robot
@@ -25,19 +26,19 @@ if __name__ == "__main__":
     while currentAngle[2] < .9 * pi:
         sleep(1)
         # take a picture and add it to the cache
-        imageList.append((str(currentAngle[2]), rbt.getImage()))
+        imageList.append(rbt.getImage())
         currentAngle = rbt.getAngle()
 
     # stop turning
     rbt.stop()
 
-    # display all the cached images
+    # save all the cached images
     print("Image List length: " + str(len(imageList)))
+    chdir("/home/administrator/ColorProject/photos")
+    imageCounter = 0
     for image in imageList:
-        # print(type(image))
-        # print(type(image[0]))
-        cv2.imshow(image[0], image[1])
-        sleep(0.3)
-        cv2.destroyWindow(image[0])
+        filename = "image{}".format(imageCounter)
+        cv2.imwrite(filename, image[0])
+        imageCounter += 1
 
     # balloons float in the y range 200-260 in the images
