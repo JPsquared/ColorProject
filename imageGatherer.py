@@ -21,11 +21,11 @@ if __name__ == "__main__":
     imageList = []
 
     # start a loop to take pictures
-    print(currentAngle)
+    # print(currentAngle)
     while currentAngle[2] < .9 * pi:
         sleep(1)
         # take a picture and add it to the cache
-        imageList.append((currentAngle, rbt.getImage()))
+        imageList.append((currentAngle[2], rbt.getImage()))
         currentAngle = rbt.getAngle()
 
     # stop turning
@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
     # display all the cached images
     for image in imageList:
-        print(type(image))
-        print(type(image[0]))
+        # print(type(image))
+        # print(type(image[0]))
         cv2.imshow(image[0], image[1])
         cv2.waitKey(0)
