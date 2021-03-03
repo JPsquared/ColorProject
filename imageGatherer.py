@@ -5,8 +5,8 @@ from turtleAPI import robot
 
 
 if __name__ == "__main__":
-    rate = rospy.Rate(10)
     rbt = robot()
+    rate = rospy.Rate(10)
     startAngle = rbt.getAngle()
     # rbt.drive(.2, 0)
     sleep(1)
