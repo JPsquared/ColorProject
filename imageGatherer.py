@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     # start a loop to take pictures
     print(currentAngle)
-    while currentAngle[2] < pi:
+    while currentAngle[2] < .9 * pi:
         sleep(1)
         # take a picture and add it to the cache
         imageList.append((currentAngle, rbt.getImage()))
