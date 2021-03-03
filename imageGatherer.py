@@ -32,8 +32,12 @@ if __name__ == "__main__":
     rbt.stop()
 
     # display all the cached images
+    print("Image List length: " + str(len(imageList)))
     for image in imageList:
         # print(type(image))
         # print(type(image[0]))
         cv2.imshow(image[0], image[1])
-        cv2.waitKey(0)
+        sleep(0.3)
+        cv2.destroyWindow(image[0])
+
+    # balloons float in the y range 200-260 in the images
