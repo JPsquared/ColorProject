@@ -25,7 +25,7 @@ if __name__ == "__main__":
     while currentAngle[2] < .9 * pi:
         sleep(1)
         # take a picture and add it to the cache
-        imageList.append((currentAngle[2], rbt.getImage()))
+        imageList.append((str(currentAngle[2]), rbt.getImage()))
         currentAngle = rbt.getAngle()
 
     # stop turning
