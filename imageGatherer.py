@@ -37,7 +37,7 @@ if __name__ == "__main__":
     chdir("/home/administrator/ColorProject/photos")
     imageCounter = 0
     for image in imageList:
-        filename = "image{}".format(imageCounter)
+        filename = "image{}.jpg".format(imageCounter)
         cv2.imwrite(filename, image[0])
         imageCounter += 1
 
