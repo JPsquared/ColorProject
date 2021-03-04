@@ -39,7 +39,7 @@ if __name__ == "__main__":
     for image in imageList:
         filename = "image{}.jpg".format(imageCounter)
         print(image.shape)
-        cv2.imwrite(filename, image[0])
+        cv2.imwrite(filename, image)
         imageCounter += 1
 
     # balloons float in the y range 200-260 in the images
