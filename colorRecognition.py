@@ -11,9 +11,9 @@ if __name__ == "__main__":
     chdir("TestPhotos")
     path = getcwd()
     fileArray = [f for f in listdir(path) if isfile(join(path, f))]
-    print(fileArray)
+    print(fileArray[1][:-8])
 
     blue = cv2.imread("blueTest.jpg")
-    cv2.imshow('blueTest.jpg', blue)
-    cv2.waitKey(0)
+    # cv2.imshow('blueTest.jpg', blue)
+    # cv2.waitKey(0)
     exit()
