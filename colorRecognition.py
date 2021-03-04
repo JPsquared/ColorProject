@@ -1,6 +1,7 @@
 import rospy
 import cv2
 from os import chdir, getcwd, listdir
+from os.path import isfile, join
 
 
 if __name__ == "__main__":
@@ -9,7 +10,8 @@ if __name__ == "__main__":
     # cd to TestPhotos
     chdir("TestPhotos")
     path = getcwd()
-    fileArray = [f for f in listdir(path)]
+    fileArray = [f for f in listdir(path) if isfile(join(path, f))]
+    print(fileArray)
 
     blue = cv2.imread("blueTest.jpg")
     cv2.imshow('blueTest.jpg', blue)
