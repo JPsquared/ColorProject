@@ -21,7 +21,7 @@ if __name__ == "__main__":
     bluehsv = cv2.cvtColor(blue, cv2.COLOR_BGR2HSV)
     bluemask = cv2.inRange(bluehsv, np.array([241, 15, 20]), np.array([300, 255, 235]))
     cv2.imshow('blue mask', bluemask)
-    cv2.waitkey(0)
+    cv2.waitKey(0)
 
     # Set up detector with default parameters
     detector = cv2.SimpleBlobDetector()
