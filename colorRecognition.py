@@ -5,12 +5,12 @@ from os.path import isfile, join
 
 
 if __name__ == "__main__":
-    print(getcwd())
     # want to use cv2's blob detector
     # cd to TestPhotos
     chdir("TestPhotos")
     path = getcwd()
     fileArray = [f for f in listdir(path) if isfile(join(path, f))]
+    # get the filename minus '...Test.jpg'
     print(fileArray[1][:-8])
 
     blue = cv2.imread("blueTest.jpg")
