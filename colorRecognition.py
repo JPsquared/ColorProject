@@ -8,6 +8,10 @@ if __name__ == "__main__":
     # want to use cv2's blob detector
     # cd to TestPhotos
     chdir("TestPhotos")
-    print(getcwd())
-    listdir(getcwd())
+    path = getcwd()
+    fileArray = [f for f in listdir(path)]
+
+    blue = cv2.imread("blueTest.jpg")
+    cv2.imshow('blueTest.jpg', blue)
+    cv2.waitkey(0)
     exit()
