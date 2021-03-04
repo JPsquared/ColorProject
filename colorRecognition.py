@@ -1,6 +1,6 @@
 import rospy
 import cv2
-from os import chdir, getcwd
+from os import chdir, getcwd, listdir
 
 
 if __name__ == "__main__":
@@ -9,4 +9,5 @@ if __name__ == "__main__":
     # cd to TestPhotos
     chdir("TestPhotos")
     print(getcwd())
+    listdir(getcwd())
     exit()
