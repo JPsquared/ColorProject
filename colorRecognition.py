@@ -8,4 +8,5 @@ if __name__ == "__main__":
     # want to use cv2's blob detector
     # cd to TestPhotos
     chdir("TestPhotos")
+    print(getcwd())
     exit()
