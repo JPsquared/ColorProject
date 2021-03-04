@@ -13,5 +13,5 @@ if __name__ == "__main__":
 
     blue = cv2.imread("blueTest.jpg")
     cv2.imshow('blueTest.jpg', blue)
-    cv2.waitkey(0)
+    cv2.waitKey(0)
     exit()
