@@ -68,7 +68,19 @@ class ColorFinder:
         :param str color: Desired augmented color of subject
         :return numpy.ndarray: Augmented image
         """
+        ct = {'blue': 1, 'magenta': 2, 'red': 3, 'yellow': 4, 'green': 5, 'cyan': 6}
 
+        if ct[color] == 1 or ct[color] == 2 or ct[color] == 6:
+            # apply blue filter
+            image[:, :, 0] = np.bitwise_or(image[:, :, 0], mask)
+        if ct[color] == 4 or ct[color] == 5 or ct[color] == 6:
+            # apply green filter
+            image[:, :, 1] = np.bitwise_or(image[:, :, 1], mask)
+        if ct[color] == 2 or ct[color] == 3 or ct[color] == 4:
+            # apply red filter
+            image[:, :, 2] = np.bitwise_or(image[:, :, 2], mask)
+
+        return image
 
 
 if __name__ == "__main__":
@@ -123,18 +135,13 @@ if __name__ == "__main__":
     goal_color = raw_input("Color to find: ")
     keypoints, mask = cf.findColorInImage(img, goal_color)
 
-    im_with_keypoints = cv2.drawKeypoints(img, keypoints, np.array([]), (0, 0, 255),
-                                          cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
-    cv2.imshow("Keypoints", im_with_keypoints)
-    cv2.waitKey(0)
+    # im_with_keypoints = cv2.drawKeypoints(img, keypoints, np.array([]), (0, 0, 255),
+    #                                       cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+    # cv2.imshow("Keypoints", im_with_keypoints)
+    # cv2.waitKey(0)
 
     # Create augmented version of image
-    # This works for blue
-    # img[:, :, 0] = np.bitwise_or(img[:, :, 0], mask)
-    img[:, :, 0] = np.bitwise_or(img[:, :, 0], mask)
-    img[:, :, 1] = np.bitwise_or(img[:, :, 1], mask)
-    img[:, :, 2] = np.bitwise_or(img[:, :, 2], mask)
-    cv2.imshow('Augmented', img)
+    cv2.imshow('Augmented', cf.augmentImage(img, mask, goal_color))
     cv2.waitKey(0)
 
     exit()
