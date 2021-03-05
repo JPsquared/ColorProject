@@ -2,9 +2,6 @@ import cv2  # VM uses cv2 version '3.#'
 import numpy as np
 from os import chdir
 
-# Define constants
-FILE_TO_TEST = "blueTest.jpg"
-
 
 class ColorFinder:
 
@@ -62,6 +59,7 @@ class ColorFinder:
 
     def augmentImage(self, image, mask, color):
         """
+        Takes an input image and a mask and applies a color filter to the image based on the mask location
 
         :param numpy.ndarray image: Raw image of scene
         :param numpy.ndarray mask: Masked image of scene with subject in white
@@ -84,64 +82,23 @@ class ColorFinder:
 
 
 if __name__ == "__main__":
-    # want to use cv2's blob detector
+    FILE_TO_TEST = "blueTest.jpg"
     # cd to TestPhotos
     chdir("TestPhotos")
-
-    # ColorToTest = FILE_TO_TEST[:-8].upper()
-    # ColorKeys = ("LOWER_{}".format(ColorToTest), "UPPER_{}".format(ColorToTest))
-
-    # img = cv2.imread(FILE_TO_TEST)  # requires being in TestPhotos directory
-    # hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    # mask = cv2.inRange(hsv, COLOR_DICT[ColorKeys[0]], COLOR_DICT[ColorKeys[1]])
-    # cv2.imshow('mask', mask)
-    # cv2.waitKey(0)
-    # kernel = np.ones((3, 3), np.uint8)
-    # # mask = cv2.erode(mask, kernel, iterations=1)
-    # mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
-    # cv2.imshow('morphology', mask)
-    # cv2.waitKey(0)
-
-    # Set up detector
-    # params = cv2.SimpleBlobDetector_Params()
-    # params.blobColor = 255
-    # params.minThreshold = 10
-    # params.maxThreshold = 200
-    # params.minArea = 20
-    # params.filterByCircularity = False
-    # params.filterByConvexity = False
-    # params.filterByInertia = False
-    # detector = cv2.SimpleBlobDetector_create(params)
-
-    # Detect blobs
-    # cv2.imshow('reverse mask', mask)
-    # cv2.waitKey(0)
-    # keypoints = detector.detect(mask)
-    # print(keypoints)
-    # for k in keypoints:
-    #     print(k.angle)
-    #     print(type(k.pt))
-    #     # k.pt is the center of the 'blob' in the image
-    #     print(k.pt)
-    #     print(k.response)
-    #     print(k.size)
-
-    # depthimg = rbt.getDepth()
-    # print(depthimg.size)
-    # print(depthimg)
 
     cf = ColorFinder()
     img = cv2.imread(FILE_TO_TEST)
     goal_color = raw_input("Color to find: ")
     keypoints, mask = cf.findColorInImage(img, goal_color)
 
-    # im_with_keypoints = cv2.drawKeypoints(img, keypoints, np.array([]), (0, 0, 255),
-    #                                       cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
-    # cv2.imshow("Keypoints", im_with_keypoints)
-    # cv2.waitKey(0)
-
     # Create augmented version of image
-    cv2.imshow('Augmented', cf.augmentImage(img, mask, goal_color))
+    img = cf.augmentImage(img, mask, goal_color)
+    cv2.imshow('Augmented', img)
+    cv2.waitKey(0)
+
+    im_with_keypoints = cv2.drawKeypoints(img, keypoints, np.array([]), (0, 0, 255),
+                                          cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+    cv2.imshow("Keypoints", im_with_keypoints)
     cv2.waitKey(0)
 
     exit()
