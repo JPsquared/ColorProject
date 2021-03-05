@@ -39,14 +39,14 @@ if __name__ == "__main__":
     cv2.waitKey(0)
 
     # check cv2 version
-    is_v2 = cv2.__version__.startswith("2.")
-    if is_v2:
-        print("is_v2")
-    else:
-        print("is_v3")
+    # is_v2 = cv2.__version__.startswith("2.")
+    # if is_v2:
+    #     print("is_v2")
+    # else:
+    #     print("is_v3")
 
     # Set up detector with default parameters
-    detector = cv2.SimpleBlobDetector()
+    detector = cv2.SimpleBlobDetector_create()
 
     # Detect blobs
     keypoints = detector.detect(mask)
