@@ -37,6 +37,9 @@ if __name__ == "__main__":
     mask = cv2.inRange(hsv, LOWER_BLUE, UPPER_BLUE)
     cv2.imshow('mask', mask)
     cv2.waitKey(0)
+    mask = cv2.dilate(mask, None, iterations=1)
+    cv2.imshow('dilate', mask)
+    cv2.waitKey(0)
 
     # check cv2 version
     # is_v2 = cv2.__version__.startswith("2.")
@@ -56,7 +59,8 @@ if __name__ == "__main__":
     detector = cv2.SimpleBlobDetector_create(params)
 
     # Detect blobs
-    keypoints = detector.detect(mask)
+    reversemask = 255 - mask
+    keypoints = detector.detect(reversemask)
 
     im_with_keypoints = cv2.drawKeypoints(mask, keypoints, np.array([]), (0, 0, 255),
                                           cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
