@@ -39,9 +39,14 @@ if __name__ == "__main__":
     cv2.waitKey(0)
 
     # Set up detector with default parameters
-    # detector = cv2.SimpleBlobDetector()
+    detector = cv2.SimpleBlobDetector()
 
     # Detect blobs
-    # keypoints = detector.detect(blue)
+    keypoints = detector.detect(mask)
+
+    im_with_keypoints = cv2.drawKeypoints(mask, keypoints, np.array([]), (0, 0, 255),
+                                          cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+    cv2.imshow("Keypoints", im_with_keypoints)
+    cv2.waitKey(0)
 
     exit()
