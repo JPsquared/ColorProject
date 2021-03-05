@@ -60,6 +60,16 @@ class ColorFinder:
         keypoints = self.detector.detect(mask)
         return keypoints, mask
 
+    def augmentImage(self, image, mask, color):
+        """
+
+        :param numpy.ndarray image: Raw image of scene
+        :param numpy.ndarray mask: Masked image of scene with subject in white
+        :param str color: Desired augmented color of subject
+        :return numpy.ndarray: Augmented image
+        """
+
+
 
 if __name__ == "__main__":
     # want to use cv2's blob detector
@@ -122,6 +132,7 @@ if __name__ == "__main__":
     # This works for blue
     # img[:, :, 0] = np.bitwise_or(img[:, :, 0], mask)
     img[:, :, 0] = np.bitwise_or(img[:, :, 0], mask)
+    img[:, :, 1] = np.bitwise_or(img[:, :, 1], mask)
     img[:, :, 2] = np.bitwise_or(img[:, :, 2], mask)
     cv2.imshow('Augmented', img)
     cv2.waitKey(0)
