@@ -62,6 +62,12 @@ if __name__ == "__main__":
     reversemask = 255 - mask
     keypoints = detector.detect(reversemask)
     print(keypoints)
+    for k in keypoints:
+        print(k.angle)
+        print(type(k.pt))
+        print(k.pt)
+        print(k.response)
+        print(k.size)
 
     im_with_keypoints = cv2.drawKeypoints(mask, keypoints, np.array([]), (0, 0, 255),
                                           cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
