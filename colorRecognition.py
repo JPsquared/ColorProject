@@ -110,7 +110,7 @@ if __name__ == "__main__":
 
     cf = ColorFinder()
     img = cv2.imread(FILE_TO_TEST)
-    goal_color = str(input("Color to find: "))
+    goal_color = raw_input("Color to find: ")
     keypoints, mask = cf.findColorInImage(img, goal_color)
 
     im_with_keypoints = cv2.drawKeypoints(img, keypoints, np.array([]), (0, 0, 255),
