@@ -42,6 +42,8 @@ if __name__ == "__main__":
     is_v2 = cv2.__version__.startswith("2.")
     if is_v2:
         print("is_v2")
+    else:
+        print("is_v3")
 
     # Set up detector with default parameters
     detector = cv2.SimpleBlobDetector()
