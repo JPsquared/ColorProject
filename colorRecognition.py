@@ -38,6 +38,11 @@ if __name__ == "__main__":
     cv2.imshow('mask', mask)
     cv2.waitKey(0)
 
+    # check cv2 version
+    is_v2 = cv2.__version__.startswith("2.")
+    if is_v2:
+        print("is_v2")
+
     # Set up detector with default parameters
     detector = cv2.SimpleBlobDetector()
 
