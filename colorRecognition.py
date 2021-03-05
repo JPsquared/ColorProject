@@ -5,10 +5,10 @@ from os import chdir, getcwd, listdir
 from os.path import isfile, join
 
 # Define constants
-FILE_TO_TEST = "greenTest.jpg"
+FILE_TO_TEST = "blueTest.jpg"
 
-LOWER_BLUE = np.array([210, 50, 20])
-UPPER_BLUE = np.array([250, 255, 235])
+LOWER_BLUE = np.array([105, 50, 20])
+UPPER_BLUE = np.array([125, 255, 235])
 LOWER_GREEN = np.array([35, 15, 20])
 UPPER_GREEN = np.array([80, 255, 235])
 LOWER_RED = np.array([])
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     cv2.imshow('hsv', hsv)
     cv2.waitKey(0)
-    mask = cv2.inRange(hsv, LOWER_GREEN, UPPER_GREEN)
+    mask = cv2.inRange(hsv, LOWER_BLUE, UPPER_BLUE)
     cv2.imshow('mask', mask)
     cv2.waitKey(0)
 
