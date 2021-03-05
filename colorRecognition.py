@@ -31,6 +31,8 @@ if __name__ == "__main__":
     # cv2.imshow('blueTest.jpg', blue)
     # cv2.waitKey(0)
     bluehsv = cv2.cvtColor(blueImg, cv2.COLOR_BGR2HSV)
+    cv2.imshow('blue hsv', bluehsv)
+    cv2.waitKey(0)
     bluemask = cv2.inRange(bluehsv, LOWER_BLUE, UPPER_BLUE)
     cv2.imshow('blue mask', bluemask)
     cv2.waitKey(0)
