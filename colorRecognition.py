@@ -7,8 +7,8 @@ from os.path import isfile, join
 # Define constants
 LOWER_BLUE = np.array([210, 50, 20])
 UPPER_BLUE = np.array([250, 255, 235])
-LOWER_GREEN = np.array([125, 150, 200])
-UPPER_GREEN = np.array([150, 255, 235])
+LOWER_GREEN = np.array([35, 15, 20])
+UPPER_GREEN = np.array([80, 255, 235])
 LOWER_RED = np.array([])
 UPPER_RED = np.array([])
 LOWER_YELLOW = np.array([])
@@ -27,14 +27,14 @@ if __name__ == "__main__":
     # for filename in fileArray:
     #     print(filename[:-8])
 
-    blueImg = cv2.imread("blueTest.jpg")
-    # cv2.imshow('blueTest.jpg', blue)
+    greenImg = cv2.imread("greenTest.jpg")
+    # cv2.imshow('greenTest.jpg', greenImg)
     # cv2.waitKey(0)
-    bluehsv = cv2.cvtColor(blueImg, cv2.COLOR_BGR2HSV)
-    cv2.imshow('blue hsv', bluehsv)
+    greenhsv = cv2.cvtColor(greenImg, cv2.COLOR_BGR2HSV)
+    cv2.imshow('green hsv', greenhsv)
     cv2.waitKey(0)
-    bluemask = cv2.inRange(bluehsv, LOWER_GREEN, UPPER_GREEN)
-    cv2.imshow('blue mask', bluemask)
+    greenmask = cv2.inRange(greenhsv, LOWER_GREEN, UPPER_GREEN)
+    cv2.imshow('green mask', greenmask)
     cv2.waitKey(0)
 
     # Set up detector with default parameters
