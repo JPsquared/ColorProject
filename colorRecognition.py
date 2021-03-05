@@ -45,8 +45,15 @@ if __name__ == "__main__":
     # else:
     #     print("is_v3")
 
-    # Set up detector with default parameters
-    detector = cv2.SimpleBlobDetector_create()
+    # Set up detector
+    params = cv2.SimpleBlobDetector_Params()
+    params.minThreshold = 10
+    params.maxThreshold = 200
+    params.minArea = 20
+    params.filterByCircularity = False
+    params.filterByConvexity = False
+    params.filterByInertia = False
+    detector = cv2.SimpleBlobDetector_create(params)
 
     # Detect blobs
     keypoints = detector.detect(mask)
