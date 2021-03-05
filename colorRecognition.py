@@ -121,7 +121,8 @@ if __name__ == "__main__":
     # Create augmented version of image
     # This works for blue
     # img[:, :, 0] = np.bitwise_or(img[:, :, 0], mask)
-    img[:, :, [0, 2]] = np.bitwise_or(img[:, :, [0, 2]], mask)  # magenta?
+    img[:, :, 0] = np.bitwise_or(img[:, :, 0], mask)
+    img[:, :, 2] = np.bitwise_or(img[:, :, 2], mask)
     cv2.imshow('Augmented', img)
     cv2.waitKey(0)
 
