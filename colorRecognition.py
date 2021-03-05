@@ -23,8 +23,8 @@ UPPER_MAGENTA = np.array([])
 
 
 if __name__ == "__main__":
-    rbt = robot()
-    rate = rospy.Rate(10)
+    # rbt = robot()
+    # rate = rospy.Rate(10)
 
     # want to use cv2's blob detector
     # cd to TestPhotos
