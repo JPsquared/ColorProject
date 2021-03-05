@@ -61,6 +61,7 @@ if __name__ == "__main__":
     # Detect blobs
     reversemask = 255 - mask
     keypoints = detector.detect(reversemask)
+    print(type(keypoints))
 
     im_with_keypoints = cv2.drawKeypoints(mask, keypoints, np.array([]), (0, 0, 255),
                                           cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
