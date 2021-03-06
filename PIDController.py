@@ -3,43 +3,66 @@ import numpy as np
 
 class PIDController:
 
-    def __init__(self, k_p, k_i, k_d, num_timesteps):
+    def __init__(self, k_p, k_i, k_d, num_time_steps=5):
         self.k_p = k_p
         self.k_i = k_i
         self.k_d = k_d
-        self.prev_error_list = [0] * num_timesteps
+        self.prev_error_list = [0] * num_time_steps
+        self.num_time_steps = num_time_steps
+        self.previous_error = 0
         self.error_list_counter = 0
 
-    def errorFunction(self, error):  # needs renaming "update input value" or something
-        # calls each of the three functions below and adds their result
-        return
+    def updateInputValue(self, err):
+        # calls the functions below and adds their result
+        processed_error = self.__error_function__(err)
+        self.previous_error = processed_error
+        p_term = self.__proportional_controller__(processed_error)
+        i_term = self.__integral_controller__(processed_error)
+        d_term = self.__derivative_controller__(processed_error)
+        self.error_list_counter += 1
+        return p_term + i_term + d_term
 
-    def __proportional_controller__(self, error):
-        pass
+    def __error_function__(self, error):
+        print("This error function was not supposed to be called!")
+        return error  # not intended to be run
 
-    def __integral_controller__(self, preverror):
-        # compute sum of previous error values
-        pass
+    def __proportional_controller__(self, err):
+        return self.k_p * err
 
-    def __derivative_controller__(self, error):
-        pass
+    def __integral_controller__(self, err):
+        self.prev_error_list[self.error_list_counter % self.num_time_steps] = err
+        return self.k_i * sum(self.prev_error_list)
+
+    def __derivative_controller__(self, err):
+        return self.k_d * (err - self.previous_error)
 
 
 class LinearSpeedPIDController(PIDController):
 
-    def __proportional_controller__(self, error):
-        # needs to calculate a new p term based on a unique error function for controlling linear speed
-        # like sqrt(error) or something like that
-        pass
+    def __error_function__(self, error):
+        """
+        Needs to calculate a new p term based on a unique error function for controlling linear speed
+        For this class, the error might be the distance from the goal
+
+        :param error:
+        :return float:
+        """
+        return np.sqrt(error)
 
 
 class AngularSpeedPIDController(PIDController):
 
-    def __proportional_controller__(self, error):
-        # needs to calculate a new p term based on a unique error function for controlling angular speed
-        # like sqrt(error) or something like that
-        pass
+    def __error_function__(self, error):
+        """
+        Needs to calculate a new p term based on a unique error function for controlling angular speed
+        For this class, the error might be the target's number of pixels away from the center of the camera
+
+        :param error:
+        :return:
+        """
+        return error
 
 
 if __name__ == "__main__":
+    # for testing
     exit()

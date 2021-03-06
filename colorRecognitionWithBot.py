@@ -3,12 +3,16 @@ import cv2
 import numpy as np
 from turtleAPI import robot
 from colorRecognition import ColorFinder
+import PIDController
 
 
 if __name__ == "__main__":
     rbt = robot()
     rate = rospy.Rate(10)
+
     cf = ColorFinder()
+    lpid = PIDController.LinearSpeedPIDController(k_p=0.1, k_i=0.1, k_d=0, num_time_steps=5)
+    apid = PIDController.AngularSpeedPIDController(k_p=0.1, k_i=0.1, k_d=0, num_time_steps=5)
 
     goal_color = raw_input("Color to hunt?: ")
 
