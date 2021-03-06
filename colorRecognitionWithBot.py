@@ -16,7 +16,7 @@ if __name__ == "__main__":
     depth = rbt.getDepth()
 
     # Figure out what color you are looking at
-    keypoints = cf.findColorInImage(img, goal_color)
+    keypoints, mask = cf.findColorInImage(img, goal_color)
     # While robot is not looking at the color it is supposed to target
     while not keypoints:
         # Turn in place
