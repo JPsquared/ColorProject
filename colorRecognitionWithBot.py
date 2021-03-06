@@ -10,7 +10,7 @@ if __name__ == "__main__":
     rate = rospy.Rate(10)
     cf = ColorFinder()
 
-    goal_color = input("Color to hunt?: ")
+    goal_color = raw_input("Color to hunt?: ")
 
     img = rbt.getImage()
     depth = rbt.getDepth()
@@ -23,7 +23,7 @@ if __name__ == "__main__":
         rbt.drive(-0.3, 0)
         # Figure out what color you are looking at
         img = rbt.getImage()
-        keypoints = cf.findColorInImage(img, goal_color)
+        keypoints, mask = cf.findColorInImage(img, goal_color)
 
     # Found target color
 
