@@ -1,4 +1,4 @@
-import numpy as np
+from math import sqrt
 
 
 class PIDController:
@@ -47,7 +47,7 @@ class LinearSpeedPIDController(PIDController):
         :param error:
         :return float:
         """
-        return np.sqrt(error)
+        return sqrt(error)
 
 
 class AngularSpeedPIDController(PIDController):
@@ -64,5 +64,13 @@ class AngularSpeedPIDController(PIDController):
 
 
 if __name__ == "__main__":
-    # for testing
+    lpid1 = LinearSpeedPIDController(0.1, 0.1, 0, 5)
+    values_to_test = [0, 10, 100, 200]
+    for value in values_to_test:
+        return_val = lpid1.updateInputValue(value)
+        print return_val
+    lpid2 = LinearSpeedPIDController(0.2, 0.15, 0, 5)
+    for value in values_to_test:
+        return_val = lpid2.updateInputValue(value)
+        print return_val
     exit()
