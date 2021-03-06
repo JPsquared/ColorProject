@@ -73,4 +73,8 @@ if __name__ == "__main__":
     for value in values_to_test:
         return_val = lpid2.updateInputValue(value)
         print return_val
+    apid = AngularSpeedPIDController(0.2, 0.15, 0, 5)
+    for value in values_to_test:
+        return_val = apid.updateInputValue(value)
+        print return_val
     exit()
