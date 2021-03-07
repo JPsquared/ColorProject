@@ -36,8 +36,6 @@ if __name__ == "__main__":
     while not hit:
         # Get distance to color
         depth_image = rbt.getDepth()
-        print(depth_image.size)
-        print(depth_image[0][0])
 
         # Get error, distance and yaw
 
