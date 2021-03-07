@@ -8,6 +8,6 @@ if __name__ == "__main__":
     rate = rospy.Rate(10)
 
     depth_image = rbt.getDepth()
-    print depth_image.size
     print type(depth_image)
+    print depth_image.size
     print depth_image[0][0]
