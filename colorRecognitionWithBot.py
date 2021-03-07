@@ -19,6 +19,7 @@ if __name__ == "__main__":
     img = rbt.getImage()
     depth = rbt.getDepth()
 
+    # FIND
     # Figure out what color you are looking at
     keypoints, mask = cf.findColorInImage(img, goal_color)
     # While robot is not looking at the color it is supposed to target
@@ -30,6 +31,7 @@ if __name__ == "__main__":
         keypoints, mask = cf.findColorInImage(img, goal_color)
 
     # Found target color
+    # RAM
 
     # Get distance to color
     # depthimg = rbt.getDepth()
