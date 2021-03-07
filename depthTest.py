@@ -1,4 +1,5 @@
 import rospy
+import cv2
 from turtleAPI import robot
 from colorRecognition import ColorFinder
 
@@ -8,6 +9,5 @@ if __name__ == "__main__":
     rate = rospy.Rate(10)
 
     depth_image = rbt.getDepth()
-    print type(depth_image)
-    # print depth_image.size  # doesn't work
-    print depth_image[0][0]
+    cv2.imshow("Depth", depth_image)
+    cv2.waitKey(0)
