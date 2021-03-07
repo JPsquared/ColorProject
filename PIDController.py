@@ -65,14 +65,16 @@ class AngularSpeedPIDController(PIDController):
 
 if __name__ == "__main__":
     lpid1 = LinearSpeedPIDController(0.1, 0.1, 0, 5)
-    values_to_test = [0, 10, 100, 200]
+    values_to_test = [200, 150, 100, 50, 25, 15, 10, 5]
     for value in values_to_test:
         return_val = lpid1.updateInputValue(value)
         print return_val
+    print
     lpid2 = LinearSpeedPIDController(0.2, 0.15, 0, 5)
     for value in values_to_test:
         return_val = lpid2.updateInputValue(value)
         print return_val
+    print
     apid = AngularSpeedPIDController(0.2, 0.15, 0, 5)
     for value in values_to_test:
         return_val = apid.updateInputValue(value)
