@@ -9,5 +9,5 @@ if __name__ == "__main__":
 
     depth_image = rbt.getDepth()
     print type(depth_image)
-    print depth_image.size
+    # print depth_image.size  # doesn't work
     print depth_image[0][0]
