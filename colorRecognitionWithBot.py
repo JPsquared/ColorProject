@@ -6,6 +6,8 @@ from colorRecognition import ColorFinder
 import PIDController
 
 
+IMAGE_WIDTH = 0
+
 if __name__ == "__main__":
     rbt = robot()
     rate = rospy.Rate(10)
@@ -32,10 +34,11 @@ if __name__ == "__main__":
 
     # Found target color
     # RAM
+    # may or may not use depth image
     hit = False
-    while not hit:
-        # Get distance to color
-        depth_image = rbt.getDepth()
+    print img.shape
+    # while not hit:
+        # depth_image = rbt.getDepth()
 
         # Get error, distance and yaw
 
