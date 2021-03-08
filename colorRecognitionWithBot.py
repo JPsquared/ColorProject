@@ -20,7 +20,6 @@ if __name__ == "__main__":
 
     # camera takes 480 x 640 images
     img = rbt.getImage()
-    # depth = rbt.getDepth()
 
     # FIND
     # Figure out what color you are looking at
@@ -37,7 +36,6 @@ if __name__ == "__main__":
     rbt.stop()
     # Found target color
     # RAM
-    # may or may not use depth image
     hit = False
     counter = 0
     while not hit:
