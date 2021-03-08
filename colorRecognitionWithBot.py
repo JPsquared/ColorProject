@@ -6,7 +6,7 @@ from colorRecognition import ColorFinder
 import PIDController
 
 
-IMAGE_WIDTH = 0
+IMAGE_WIDTH = 640  # in pixels
 
 if __name__ == "__main__":
     rbt = robot()
@@ -18,8 +18,9 @@ if __name__ == "__main__":
 
     goal_color = raw_input("Color to hunt: ")
 
+    # camera takes 480 x 640 images
     img = rbt.getImage()
-    depth = rbt.getDepth()
+    # depth = rbt.getDepth()
 
     # FIND
     # Figure out what color you are looking at
@@ -38,7 +39,6 @@ if __name__ == "__main__":
     # RAM
     # may or may not use depth image
     hit = False
-    print img.shape
     # while not hit:
 
     exit()
