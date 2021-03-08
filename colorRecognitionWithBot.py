@@ -25,6 +25,7 @@ if __name__ == "__main__":
     # Figure out what color you are looking at
     keypoints, mask = cf.findColorInImage(img, goal_color)
     # While robot is not looking at the color it is supposed to target
+    rbt.drive(0.3, 0)
     while not keypoints:
         # Turn in place
         rbt.drive(0.3, 0)
@@ -32,14 +33,12 @@ if __name__ == "__main__":
         img = rbt.getImage()
         keypoints, mask = cf.findColorInImage(img, goal_color)
 
+    rbt.stop()
     # Found target color
     # RAM
     # may or may not use depth image
     hit = False
     print img.shape
     # while not hit:
-        # depth_image = rbt.getDepth()
-
-        # Get error, distance and yaw
 
     exit()
