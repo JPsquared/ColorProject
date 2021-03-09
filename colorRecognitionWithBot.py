@@ -37,25 +37,20 @@ if __name__ == "__main__":
     # Found target color
     # RAM
     hit = False
-    counter = 0
+    # counter = 0
     while not hit:
         img = rbt.getImage()
         # thought: the keypoints list may be empty sometimes
         keypoints, mask = cf.findColorInImage(img, goal_color)
-        if not keypoints:
-            print("Empty list")
-            rbt.stop()
-            continue
-        else:
-            print("Got something")
-            print(keypoints)
-            error = (IMAGE_WIDTH / 2) - keypoints[0].pt[1]
-            # keypoints pt, response, and size are important metrics
-            angular_speed = apid.updateInputValue(error)
-            rbt.drive(angular_speed, 0.5)
+        # print("Got something")
+        # print(keypoints)
+        error = (IMAGE_WIDTH / 2) - keypoints[0].pt[1]
+        # keypoints pt, response, and size are important metrics
+        angular_speed = apid.updateInputValue(error)
+        rbt.drive(angular_speed, 0.5)
 
-        counter += 1
-        if counter == 50:
-            hit = True
+        # counter += 1
+        # if counter == 50:
+        #     hit = True
 
     exit()
