@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     cf = ColorFinder()
     # lpid = PIDController.LinearSpeedPIDController(k_p=0.1, k_i=0.1, k_d=0, num_time_steps=5)
-    apid = PIDController.AngularSpeedPIDController(k_p=0.01, k_i=0.01, k_d=0, num_time_steps=5)
+    apid = PIDController.AngularSpeedPIDController(k_p=0.05, k_i=0.01, k_d=0, num_time_steps=5)
 
     goal_color = raw_input("Color to hunt: ")
 
@@ -37,25 +37,25 @@ if __name__ == "__main__":
     # Found target color
     # RAM
     hit = False
-    counter = 0
+    # counter = 0
     while not hit:
         img = rbt.getImage()
         # thought: the keypoints list may be empty sometimes
         keypoints, mask = cf.findColorInImage(img, goal_color)
         if not keypoints:
             print("Empty list")
-            rbt.stop()
+            rbt.drive(0.3, 0)
             continue
         else:
             print("Got something")
-            print(keypoints)
+            print(keypoints[0].size)
             error = (IMAGE_WIDTH / 2) - keypoints[0].pt[1]
             # keypoints pt, response, and size are important metrics
             angular_speed = apid.updateInputValue(error)
             rbt.drive(angular_speed, 0.5)
 
-        counter += 1
-        if counter == 50:
-            hit = True
+        # counter += 1
+        # if counter == 50:
+        #     hit = True
 
     exit()
