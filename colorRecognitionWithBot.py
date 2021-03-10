@@ -39,9 +39,15 @@ if __name__ == "__main__":
     hit = False
     # counter = 0
     while not hit:
+        # get what the camera is seeing
         img = rbt.getImage()
         # thought: the keypoints list may be empty sometimes
         keypoints, mask = cf.findColorInImage(img, goal_color)
+        # display the augmented image feed
+        augmented = cf.augmentImage(img, mask)
+        cv2.imshow('augmented', augmented)
+        cv2.waitKey(1)
+
         if not keypoints:
             print("Empty list")
             rbt.drive(0.3, 0)
@@ -57,5 +63,6 @@ if __name__ == "__main__":
         # counter += 1
         # if counter == 50:
         #     hit = True
+    cv2.destroyAllWindows()
 
     exit()
