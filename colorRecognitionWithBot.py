@@ -46,7 +46,7 @@ if __name__ == "__main__":
         # display the augmented image feed
         augmented = cf.augmentImage(img, mask)
         cv2.imshow('augmented', augmented)
-        cv2.waitKey(1)
+        cv2.waitKey(10)
 
         if not keypoints:
             print("Empty list")
