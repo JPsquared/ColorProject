@@ -6,6 +6,10 @@
 
 ### [World File](https://www.usna.edu/Users/cs/taylor/courses/si475/resources/roblab_with_balloons.world)
 
+### [PID Controller PDF](https://www.usna.edu/Users/cs/taylor/courses/si475/notes/pid.pdf)
+
+### [Turtle API](https://www.usna.edu/Users/cs/taylor/courses/si475/hw/turtleAPI.html)
+
 In your program, you should be able to type in a color, and the robot will find and ram the balloon of that color.
 
 Restrictions:
