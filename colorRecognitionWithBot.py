@@ -27,8 +27,6 @@ if __name__ == "__main__":
     # While robot is not looking at the color it is supposed to target
     rbt.drive(0.3, 0)
     while not keypoints:
-        # Turn in place
-        rbt.drive(0.3, 0)
         # Figure out what color you are looking at
         img = rbt.getImage()
         keypoints, mask = cf.findColorInImage(img, goal_color)
