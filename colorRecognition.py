@@ -13,7 +13,7 @@ class ColorFinder:
             'LOWER_BLUE': np.array([105, 50, 20]),
             'UPPER_BLUE': np.array([125, 255, 235]),
             'LOWER_GREEN': np.array([35, 50, 20]),
-            'UPPER_GREEN': np.array([80, 255, 235]),
+            'UPPER_GREEN': np.array([80, 255, 240]),
             'LOWER_RED': np.array([165, 50, 20]),
             'UPPER_RED': np.array([8, 255, 235]),
             'LOWER_YELLOW': np.array([25, 50, 20]),
@@ -59,6 +59,9 @@ class ColorFinder:
             mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, self.kernel)
             # mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, self.kernel)
         keypoints = self.detector.detect(mask)
+        # overlay keypoints circles onto mask for debugging purposes
+        mask = cv2.drawKeypoints(mask, keypoints, np.array([]), (0, 0, 255),
+                                 cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
         return keypoints, mask
 
     def augmentImage(self, image, mask, color):
