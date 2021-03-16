@@ -32,6 +32,10 @@ if __name__ == "__main__":
         # Figure out what color you are looking at
         img = rbt.getImage()
         keypoints, mask = cf.findColorInImage(img, goal_color)
+        # display augmented image feed
+        augmented = cf.augmentImage(img, mask, goal_color)
+        cv2.imshow('augmented', augmented)
+        cv2.waitKey(10)
 
     rbt.stop()
     # Found target color
@@ -49,14 +53,14 @@ if __name__ == "__main__":
         cv2.waitKey(10)
 
         if not keypoints:
-            print("Empty list")
+            # print("Empty list")
             rbt.drive(0.3, 0)
             continue
         else:
             error = (IMAGE_WIDTH / 2) - keypoints[0].pt[1]
-            print("Got Something: {}  ||  {}".format(keypoints[0].size, error))
             # keypoints pt, response, and size are important metrics
             angular_speed = apid.updateInputValue(error)
+            print("Got Something: {}  ||  {}  ||  {}".format(keypoints[0].size, error, angular_speed))
             rbt.drive(angular_speed, 0.5)
 
         # counter += 1
