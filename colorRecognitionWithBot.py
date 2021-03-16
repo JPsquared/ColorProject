@@ -60,6 +60,7 @@ if __name__ == "__main__":
         if not keypoints:
             # print("Empty list")
             if not saved_keypoints:
+                # this should only happen once
                 rbt.drive(0.3, 0)
                 continue
             error = (IMAGE_WIDTH / 2) - saved_keypoints[0].pt[0]

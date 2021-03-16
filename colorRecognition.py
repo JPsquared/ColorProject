@@ -21,7 +21,7 @@ class ColorFinder:
             'LOWER_MAGENTA': np.array([145, 50, 20]),
             'UPPER_MAGENTA': np.array([159, 255, 245])
         }
-        self.kernel = np.ones((3, 3), dtype=np.uint8)
+        self.kernel = np.ones((20, 20), dtype=np.uint8)
         # parameters are designed to be tuned to detect specific shapes
         # many are not necessary for this project and are not included in this
         self.params = cv2.SimpleBlobDetector_Params()
