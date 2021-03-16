@@ -53,9 +53,8 @@ if __name__ == "__main__":
             rbt.drive(0.3, 0)
             continue
         else:
-            print("Got something")
-            print(keypoints[0].size)
             error = (IMAGE_WIDTH / 2) - keypoints[0].pt[1]
+            print("Got Something: {}  ||  {}".format(keypoints[0].size, error))
             # keypoints pt, response, and size are important metrics
             angular_speed = apid.updateInputValue(error)
             rbt.drive(angular_speed, 0.5)
