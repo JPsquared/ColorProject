@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     cf = ColorFinder()
     # lpid = PIDController.LinearSpeedPIDController(k_p=0.1, k_i=0.1, k_d=0, num_time_steps=5)
-    apid = PIDController.AngularSpeedPIDController(k_p=0.01, k_i=0.01, k_d=0, num_time_steps=5)
+    apid = PIDController.AngularSpeedPIDController(k_p=0.001, k_i=0.0001, k_d=0, num_time_steps=5)
 
     goal_color = raw_input("Color to hunt: ")
 
