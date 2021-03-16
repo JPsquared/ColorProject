@@ -41,6 +41,7 @@ if __name__ == "__main__":
     # Found target color
     # RAM
     hit = False
+    saved_keypoints = []
     # counter = 0
     while not hit:
         # get what the camera is seeing
@@ -54,13 +55,18 @@ if __name__ == "__main__":
 
         if not keypoints:
             # print("Empty list")
-            rbt.drive(0.3, 0)
-            continue
+            if not saved_keypoints:
+                rbt.drive(0.3, 0)
+                continue
+            error = (IMAGE_WIDTH / 2) - saved_keypoints[0].pt[1]
+            angular_speed = apid.updateInputValue(error)
+            rbt.drive(angular_speed, 0.5)
         else:
+            saved_keypoints = keypoints
             error = (IMAGE_WIDTH / 2) - keypoints[0].pt[1]
             # keypoints pt, response, and size are important metrics
             angular_speed = apid.updateInputValue(error)
-            print("Got Something: {}  ||  {}  ||  {}".format(keypoints[0].pt, error, angular_speed))
+            print("Got Something: {} || {} || {} || {}".format(len(keypoints), keypoints[0].pt, error, angular_speed))
             rbt.drive(angular_speed, 0.5)
 
         # counter += 1
