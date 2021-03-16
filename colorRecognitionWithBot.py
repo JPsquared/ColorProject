@@ -34,7 +34,7 @@ if __name__ == "__main__":
         keypoints, mask = cf.findColorInImage(img, goal_color)
         # display augmented image feed
         augmented = cf.augmentImage(img, mask, goal_color)
-        cv2.imshow('augmented', augmented)
+        cv2.imshow('augmented', mask)  # replace augmented with mask to show black and white
         cv2.waitKey(10)
 
     rbt.stop()
@@ -49,7 +49,7 @@ if __name__ == "__main__":
         keypoints, mask = cf.findColorInImage(img, goal_color)
         # display the augmented image feed
         augmented = cf.augmentImage(img, mask, goal_color)
-        cv2.imshow('augmented', augmented)
+        cv2.imshow('augmented', mask)  # replace augmented with mask to show black and white
         cv2.waitKey(10)
 
         if not keypoints:
