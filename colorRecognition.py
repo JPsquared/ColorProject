@@ -30,12 +30,12 @@ class ColorFinder:
         # self.params.maxThreshold = 200
         # self.params.filterByArea = True
         # self.params.minArea = 20
-        # self.params.filterByCircularity = True
-        # self.params.minCircularity = 0.85
-        # self.params.filterByConvexity = True
-        # self.params.minConvexity = 0.3
-        # self.params.filterByInertia = True
-        # self.params.minInertiaRatio = 0.01
+        self.params.filterByCircularity = True
+        self.params.minCircularity = 0.85
+        self.params.filterByConvexity = True
+        self.params.minConvexity = 0.5
+        self.params.filterByInertia = True
+        self.params.minInertiaRatio = 0.5
         self.detector = cv2.SimpleBlobDetector_create(self.params)
 
     def findColorInImage(self, image, color, apply_morph=True):
