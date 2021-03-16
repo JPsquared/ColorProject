@@ -60,7 +60,7 @@ if __name__ == "__main__":
             error = (IMAGE_WIDTH / 2) - keypoints[0].pt[1]
             # keypoints pt, response, and size are important metrics
             angular_speed = apid.updateInputValue(error)
-            print("Got Something: {}  ||  {}  ||  {}".format(keypoints[0].size, error, angular_speed))
+            print("Got Something: {}  ||  {}  ||  {}".format(keypoints[0].pt, error, angular_speed))
             rbt.drive(angular_speed, 0.5)
 
         # counter += 1
