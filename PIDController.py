@@ -60,7 +60,7 @@ class AngularSpeedPIDController(PIDController):
         :param error:
         :return:
         """
-        return -(error / 2)
+        return error / 2
 
 
 if __name__ == "__main__":
