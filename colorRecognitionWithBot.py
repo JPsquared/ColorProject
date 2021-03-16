@@ -44,7 +44,7 @@ if __name__ == "__main__":
         # thought: the keypoints list may be empty sometimes
         keypoints, mask = cf.findColorInImage(img, goal_color)
         # display the augmented image feed
-        augmented = cf.augmentImage(img, mask)
+        augmented = cf.augmentImage(img, mask, goal_color)
         cv2.imshow('augmented', augmented)
         cv2.waitKey(10)
 
