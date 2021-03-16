@@ -22,6 +22,9 @@ Restrictions:
 - You may not reference the balloon colors using Gazebo - you have to extract these using saved images and some external
   program.
   
+### To run my solution:
+
+Run `colorRecognitionWithBot.py`
 
 #### Startup.sh and ColorProjectStartup.desktop
 
