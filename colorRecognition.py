@@ -26,10 +26,6 @@ class ColorFinder:
         # many are not necessary for this project and are not included in this
         self.params = cv2.SimpleBlobDetector_Params()
         self.params.blobColor = 255  # looking for white blobs
-        # self.params.minThreshold = 10
-        # self.params.maxThreshold = 200
-        # self.params.filterByArea = True
-        # self.params.minArea = 20
         self.params.filterByCircularity = True
         self.params.minCircularity = 0.85
         self.params.filterByConvexity = True
