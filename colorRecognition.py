@@ -66,15 +66,15 @@ class ColorFinder:
         :param str color: Desired augmented color of subject
         :return numpy.ndarray: Augmented image
         """
-        ct = {'blue': 1, 'magenta': 2, 'red': 3, 'yellow': 4, 'green': 5, 'cyan': 6}
+        color_filter = {'blue': 1, 'magenta': 2, 'red': 3, 'yellow': 4, 'green': 5, 'cyan': 6}
 
-        if ct[color] == 1 or ct[color] == 2 or ct[color] == 6:
+        if color_filter[color] == 1 or color_filter[color] == 2 or color_filter[color] == 6:
             # apply blue filter
             image[:, :, 0] = np.bitwise_or(image[:, :, 0], mask)
-        if ct[color] == 4 or ct[color] == 5 or ct[color] == 6:
+        if color_filter[color] == 4 or color_filter[color] == 5 or color_filter[color] == 6:
             # apply green filter
             image[:, :, 1] = np.bitwise_or(image[:, :, 1], mask)
-        if ct[color] == 2 or ct[color] == 3 or ct[color] == 4:
+        if color_filter[color] == 2 or color_filter[color] == 3 or color_filter[color] == 4:
             # apply red filter
             image[:, :, 2] = np.bitwise_or(image[:, :, 2], mask)
 
