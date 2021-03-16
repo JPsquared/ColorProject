@@ -19,7 +19,7 @@ class ColorFinder:
             'LOWER_YELLOW': np.array([25, 50, 20]),
             'UPPER_YELLOW': np.array([35, 255, 235]),
             'LOWER_MAGENTA': np.array([145, 50, 20]),
-            'UPPER_MAGENTA': np.array([158, 255, 235])
+            'UPPER_MAGENTA': np.array([159, 255, 245])
         }
         self.kernel = np.ones((3, 3), dtype=np.uint8)
         # parameters are designed to be tuned to detect specific shapes
