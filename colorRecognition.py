@@ -28,6 +28,7 @@ class ColorFinder:
         self.params.blobColor = 255  # looking for white blobs
         self.params.filterByCircularity = True
         self.params.minCircularity = 0.85
+        self.params.maxCircularity = 1
         self.params.filterByConvexity = True
         self.params.minConvexity = 0.25
         self.params.filterByInertia = True
