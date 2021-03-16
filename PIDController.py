@@ -47,7 +47,7 @@ class LinearSpeedPIDController(PIDController):
         :param error:
         :return float:
         """
-        return -(error / 2)
+        return sqrt(error)
 
 
 class AngularSpeedPIDController(PIDController):
@@ -60,7 +60,7 @@ class AngularSpeedPIDController(PIDController):
         :param error:
         :return:
         """
-        return sqrt(error)
+        return -(error / 2)
 
 
 if __name__ == "__main__":
