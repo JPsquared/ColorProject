@@ -59,9 +59,6 @@ class ColorFinder:
             mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, self.kernel)
             # mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, self.kernel)
         keypoints = self.detector.detect(mask)
-        # overlay keypoints circles onto mask for debugging purposes
-        mask = cv2.drawKeypoints(mask, keypoints, np.array([]), (0, 0, 255),
-                                 cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
         return keypoints, mask
 
     def augmentImage(self, image, mask, color):
