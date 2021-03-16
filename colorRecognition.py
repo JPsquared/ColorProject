@@ -28,10 +28,14 @@ class ColorFinder:
         self.params.blobColor = 255  # looking for white blobs
         self.params.minThreshold = 10
         self.params.maxThreshold = 200
+        self.params.filterByArea = True
         self.params.minArea = 20
-        self.params.filterByCircularity = False
-        self.params.filterByConvexity = False
-        self.params.filterByInertia = False
+        self.params.filterByCircularity = True
+        self.params.minCircularity = 0.85
+        self.params.filterByConvexity = True
+        self.params.minConvexity = 0.3
+        self.params.filterByInertia = True
+        self.params.minInertiaRatio = 0.01
         self.detector = cv2.SimpleBlobDetector_create(self.params)
 
     def findColorInImage(self, image, color, apply_morph=True):
