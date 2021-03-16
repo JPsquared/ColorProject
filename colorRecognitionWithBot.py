@@ -62,7 +62,7 @@ if __name__ == "__main__":
             if not saved_keypoints:
                 rbt.drive(0.3, 0)
                 continue
-            error = saved_keypoints[0].pt[1] - (IMAGE_WIDTH / 2)
+            error = (IMAGE_WIDTH / 2) - keypoints[0].pt[1]
             angular_speed = apid.updateInputValue(error)
             rbt.drive(angular_speed, 0.5)
         else:
