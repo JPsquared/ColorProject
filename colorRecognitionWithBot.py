@@ -10,7 +10,7 @@ IMAGE_WIDTH = 640  # in pixels
 
 if __name__ == "__main__":
     rbt = robot()
-    # rate = rospy.Rate(10)
+    # rate = rospy.Rate(10)  # commenting this out did not fix the flickering image
 
     cf = ColorFinder()
     # lpid = PIDController.LinearSpeedPIDController(k_p=0.1, k_i=0.1, k_d=0, num_time_steps=5)
