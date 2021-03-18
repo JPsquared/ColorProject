@@ -36,7 +36,7 @@ if __name__ == "__main__":
         mask = cv2.drawKeypoints(mask, keypoints, np.array([]), (0, 0, 255),
                                  cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
         cv2.imshow('augmented', mask)  # replace augmented with mask to show black and white
-        cv2.waitKey(10)
+        cv2.waitKey(1)
 
     rbt.stop()
     # Found target color
@@ -55,7 +55,7 @@ if __name__ == "__main__":
         mask = cv2.drawKeypoints(mask, keypoints, np.array([]), (0, 0, 255),
                                  cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
         cv2.imshow('augmented', mask)  # replace augmented with mask to show black and white
-        cv2.waitKey(10)
+        cv2.waitKey(1)
 
         if not keypoints:
             # print("Empty list")
